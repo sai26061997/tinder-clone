@@ -4,10 +4,10 @@ const tiktokschema=mongoose.Schema({
     url:String,
     channel:String,
     song:String,
-    likes:String,
-    messages:String,
+    Likes:String,
+    Messages:String,
     description:String,
-    shares:String,
+    Shares:String,
    
 });
 
