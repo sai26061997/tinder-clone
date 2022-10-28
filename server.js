@@ -10,7 +10,7 @@ const cors= require('cors');
 
 const app =express()
 const port= process.env.PORT ||8001
-const connection_url='mongodb+srv://admin:6ifny7G4FA9nPWcM@cluster0.xga5v.mongodb.net/tinderdb?retryWrites=true&w=majority'
+const connection_url='mongodb+srv://admin1:CtthoHezLed0Ou9a@cluster0.mzetevw.mongodb.net/?retryWrites=true&w=majority'
 
 //Middleware
 app.use(express.json());
@@ -25,7 +25,7 @@ mongoose.connect(connection_url,{
 app.get('/',(req,res)=>res.status(200).send( "hello"));
 app.post("/tinder/card",(req,res)=>{
     const dbcards= req.body
-    console.log(dbcards);
+    console.log(dbcards);   
         cards.create(dbcards,(err,data)=>{
         if(err){
             res.status(500).send(err)
@@ -39,6 +39,7 @@ app.post("/tinder/card",(req,res)=>{
 app.get("/tinder/card",(req,res)=>{
 cards.find((err, data) => {
         if (err) {
+           
             res.status(500).send(err);
         } else {
             res.status(200).send(data);
@@ -48,4 +49,4 @@ cards.find((err, data) => {
 });
 //Listeners
 
-app.listen(port,()=>console.log("listening at port:" +{port} ));
+app.listen(port,()=>console.log(`Listening at port ${port}` ));
