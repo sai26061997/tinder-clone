@@ -1,6 +1,6 @@
 import express from "express"
 import mongoose from "mongoose"
-import data from "./data.js"
+//import data from "./data.js"
 import Videos from "./dbmodel.js"
 
 //app config 
@@ -10,13 +10,13 @@ const port=process.env.PORT || 9000;
 //middleware
 app.use(express.json());
 app.use((req,res,next)=>{
-    res.setHeader('Access-Control-Allow-Origin','*'),
-    res.setHeader('Access-Control-Allow-Headers','*'),
+    res.header('Access-Control-Allow-Origin','*');
+    res.header('Access-Control-Allow-Header','*');
     next()
 })
 
 //db config
-const conurl="mongodb+srv://admin:m8lvcMWCqmlVQBQV@cluster0.c335t.mongodb.net/tiktok?retryWrites=true&w=majority"
+const conurl="mongodb+srv://sai:pxs5JJlO4H0zJsJR@cluster0.grnv3bb.mongodb.net/?retryWrites=true&w=majority"
 mongoose.connect(conurl,{
     useNewUrlParser:true,
     useCreateIndex:true,
